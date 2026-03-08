@@ -1,5 +1,7 @@
 import requests
 from API_KEY import API_KEY
+from send_email import send_email
+
 
 url = (
     f"https://newsapi.org/v2/everything?"
@@ -14,6 +16,16 @@ response = requests.get(url)
 # Get the JSON content from the response
 content = response.json()
 
+email_content = ""
+
 for article in content["articles"]:
-    print(article["title"])
-    print("------------------------")
+    email_content += (
+        f"Title: {article['title']}\n"
+        f"Description: {article['description']}\n"
+        f"URL: {article['url']}\n\n"
+    )
+
+send_email(
+    message=email_content,
+    subject="Daily News Update"
+)
