@@ -25,6 +25,8 @@ for article in content["articles"]:
         f"URL: {article['url']}\n\n"
     )
 
+email_content = email_content.encode("utf-8") 
+
 send_email(
     message=email_content,
     subject="Daily News Update"
