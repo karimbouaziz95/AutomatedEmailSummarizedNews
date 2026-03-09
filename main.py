@@ -2,13 +2,15 @@ import requests
 from API_KEY import API_KEY
 from send_email import send_email
 
+topic = "tesla"
 
 url = (
     f"https://newsapi.org/v2/everything?"
-    f"q=tesla&"
+    f"q={topic}&"
     f"from=2026-02-08&"
     f"sortBy=publishedAt&"
-    f"apiKey={API_KEY}"
+    f"apiKey={API_KEY}&"
+    f"language=en"
 )
 # Make a GET request to the API
 response = requests.get(url)
@@ -25,9 +27,11 @@ for article in content["articles"]:
         f"URL: {article['url']}\n\n"
     )
 
-email_content = email_content.encode("utf-8") 
 
+
+"""
 send_email(
     message=email_content,
     subject="Daily News Update"
 )
+"""
