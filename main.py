@@ -28,10 +28,7 @@ for article in content["articles"]:
     )
 
 
-
-"""
 send_email(
     message=email_content,
     subject="Daily News Update"
 )
-"""
