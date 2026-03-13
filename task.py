@@ -1,8 +1,12 @@
 import requests
 import streamlit as st
+import os
+from dotenv import load_dotenv
 
-API_KEY = "7urs9FpnExjaHtb2gbQLzNa5IxW16FMPyjejvnCe"
-url = f"https://api.nasa.gov/planetary/apod?api_key={API_KEY}"
+load_dotenv()
+
+NASA_API_KEY = os.getenv("NASA_API_KEY")
+url = f"https://api.nasa.gov/planetary/apod?api_key={NASA_API_KEY}"
 
 # Make a GET request to the NASA API
 nasa_response = requests.get(url)
