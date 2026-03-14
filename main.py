@@ -1,6 +1,12 @@
 import requests
-from API_KEY import API_KEY
+import os
+from dotenv import load_dotenv
+
 from send_email import send_email
+
+load_dotenv()
+
+API_KEY = os.getenv("NEWS_API_KEY")
 
 topic = "tesla"
 
